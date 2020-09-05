@@ -1,12 +1,8 @@
-def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
-    return result
-
-
+def intersection(arrs):
+    d = dict((item, 0) for item in arrs[0])                                             # Create Dict from first list in arrs. {key: list item, value: 0}
+    for arr in arrs: d = dict((item, d[item]+1) for item in arr if item in d.keys())    # Itterate over the remaining lists in arrs and if any of their items match the dict keys add 1 to the dict value.
+    return [k for k in d if d[k] == len(arrs)]                                          # return the items that appeared in all lists
+    
 if __name__ == "__main__":
     arrays = []
 
